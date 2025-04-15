@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  scope path: "/api/v1" do
+    get "users/current", to: "users#current"
+    resources :rewards, only: [ :index, :show ]
+    resources :redemptions, only: [ :create, :index ]
+  end
 end

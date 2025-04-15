@@ -1,0 +1,6 @@
+one:
+  user: one
+  reward: available_reward
+  reward_name: Free Coffee
+  reward_description: Get a free coffee at the cafeteria
+  reward_cost: 100
