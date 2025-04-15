@@ -8,7 +8,7 @@ class CreateRedemptions < ActiveRecord::Migration[8.0]
       t.integer :reward_cost, null: false
       t.timestamps
 
-      t.index [:user_id, :created_at], name: 'index_redemptions_on_user_id_and_created_at'
+      t.index [ :user_id, :created_at ], name: 'index_redemptions_on_user_id_and_created_at'
     end
   end
 end
