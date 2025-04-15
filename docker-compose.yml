@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:17.4
+    container_name: rr_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: rr_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.local
+    container_name: rr_backend
+    command: bundle exec rails s -b 0.0.0.0
+    volumes:
+      - ./backend:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:password@db:5432/rr_development
+      DATABASE_TEST_URL: postgresql://postgres:password@db:5432/rr_test
+    stdin_open: true
+    tty: true
+
+volumes:
+  db_data:
