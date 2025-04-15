@@ -1,0 +1,17 @@
+available_reward:
+  name: Free Coffee
+  description: Get a free coffee at the cafeteria
+  cost: 100
+  available: true
+
+unavailable_reward:
+  name: Movie Ticket
+  description: Free movie ticket for any showing
+  cost: 500
+  available: false
+
+expensive_reward:
+  name: Company Swag
+  description: T-shirt with company logo
+  cost: 2000
+  available: true
