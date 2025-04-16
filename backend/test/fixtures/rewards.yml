@@ -1,17 +1,29 @@
+premium_horse:
+  name: Tennessee Walker Horse
+  description: A reliable horse with good stamina and handling
+  cost: 500
+  available: true
+
+hunting_rifle:
+  name: Rolling Block Rifle
+  description: Long-range rifle perfect for hunting big game
+  cost: 350
+  available: true
+
 available_reward:
-  name: Free Coffee
-  description: Get a free coffee at the cafeteria
-  cost: 100
+  name: Leather Journal
+  description: High-quality journal for sketching and notes
+  cost: 10
+  available: true
+
+expensive_reward:
+  name: Rose Grey Bay Arabian
+  description: This is the finest horse a man could own.
+  cost: 1250
   available: true
 
 unavailable_reward:
-  name: Movie Ticket
-  description: Free movie ticket for any showing
-  cost: 500
+  name: Special Lake Lure Set
+  description: Specialized lures for catching legendary fish
+  cost: 250
   available: false
-
-expensive_reward:
-  name: Company Swag
-  description: T-shirt with company logo
-  cost: 2000
-  available: true

@@ -1,6 +1,7 @@
 one:
   user: one
   reward: available_reward
-  reward_name: Free Coffee
-  reward_description: Get a free coffee at the cafeteria
-  reward_cost: 100
+  reward_name: Leather Journal
+  reward_description: High-quality journal for sketching and notes
+  reward_cost: 10
+  created_at: 1898-07-07T00:00:00+00:00
