@@ -46,7 +46,7 @@ export default function Reward({ reward, onRedeem, balance }: RewardProps) {
       key={reward.id}
       className="relative flex flex-col justify-between overflow-hidden border-[2px] border-dashed border-[#2d2417] p-6 hover:border-solid"
       data-testid={`reward-${reward.id}`}
-      role="article"
+      role="listitem"
       aria-labelledby={`reward-title-${reward.id}`}
     >
       <h2
