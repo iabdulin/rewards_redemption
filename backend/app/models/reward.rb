@@ -5,5 +5,5 @@ class Reward < ApplicationRecord
   validates :cost,
     presence: true,
     numericality: { only_integer: true }
-  validates :available, presence: true
+  validates :available, inclusion: { in: [ true, false ] }
 end

@@ -18,12 +18,24 @@ available_reward:
 
 expensive_reward:
   name: Rose Grey Bay Arabian
-  description: This is the finest horse a man could own.
+  description: This is the finest horse a man could own
   cost: 1250
   available: true
 
 unavailable_reward:
-  name: Special Lake Lure Set
-  description: Specialized lures for catching legendary fish
+  name: Unavailable Reward
+  description: Nobody really knows what it is
   cost: 250
   available: false
+
+free_reward:
+  name: Yarrow Collection
+  description: Gather wild yarrow herbs for crafting tonics
+  cost: 0
+  available: true
+
+negative_reward:
+  name: Debt Collection
+  description: Return money to the camp by collecting debts
+  cost: -25
+  available: true
