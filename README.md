@@ -6,6 +6,9 @@ A full-stack web app built with React, Rails, and PostgreSQL.
 [![Rails Tests](https://github.com/iabdulin/rewards_redemption/actions/workflows/rails.yml/badge.svg)](https://github.com/iabdulin/rewards_redemption/actions/workflows/rails.yml)
 [![Playwright E2E Tests](https://github.com/iabdulin/rewards_redemption/actions/workflows/e2e.yml/badge.svg)](https://github.com/iabdulin/rewards_redemption/actions/workflows/e2e.yml)
 
+<img width="704" alt="image" src="https://github.com/user-attachments/assets/e4c30777-1034-4cef-b33c-bffe78fa4f58" />
+
+
 ## Setup
 
 #### Backend & Database
