@@ -45,12 +45,12 @@ More demos:
 
 ### E2E Tests
 
-- I chose Playwright because I prefer using it even during the development process instead of a browser to get the application to the state I want.
-- The main functionality is tested.
-- Special cases for behind-the-scenes updates are tested (see `frontend/tests/e2e/tests/errors.spec.ts`):
-  ---- `user.points_balance` became insufficient
-  ---- `reward.available` was changed
-  ---- `reward` was deleted
+I chose Playwright because I prefer using it even during the development process instead of a browser to get the application to the state I want.
+
+The main functionality is tested. Special cases for behind-the-scenes updates are tested (see `frontend/tests/e2e/tests/errors.spec.ts`):
+- `user.points_balance` became insufficient
+- `reward.available` was changed
+- `reward` was deleted
 
 ### Linting
 
