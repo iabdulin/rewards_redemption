@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   scope path: "/api/v1" do
     get "users/current", to: "users#current"
-    resources :rewards, only: [ :index, :show ]
+    resources :rewards, only: [ :index ]
     resources :redemptions, only: [ :create, :index ]
   end
 
