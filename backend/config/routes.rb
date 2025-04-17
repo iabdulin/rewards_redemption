@@ -13,4 +13,14 @@ Rails.application.routes.draw do
     resources :rewards, only: [ :index, :show ]
     resources :redemptions, only: [ :create, :index ]
   end
+
+  unless Rails.env.production?
+    scope path: "/test" do
+      delete "clear_database", to: "test#clear_database"
+      post "fill_database", to: "test#fill_database"
+      patch "update_balance", to: "test#update_balance"
+      patch "update_reward_availability", to: "test#update_reward_availability"
+      delete "delete_reward", to: "test#delete_reward"
+    end
+  end
 end
