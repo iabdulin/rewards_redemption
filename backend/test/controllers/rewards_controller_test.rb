@@ -12,6 +12,6 @@ class RewardsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     json_response = JSON.parse(response.body)
-    assert_equal Reward.where(available: true).as_json, json_response
+    assert_equal Reward.where(available: true).order(id: :desc).as_json, json_response
   end
 end

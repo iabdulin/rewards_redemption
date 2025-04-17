@@ -1,7 +1,7 @@
 class RedemptionsController < ApplicationController
   def index
     # Note: pagination is not implemented
-    redemptions = Redemption.where(user: current_user).order(created_at: :desc)
+    redemptions = current_user.redemptions.order(created_at: :desc)
     render json: redemptions, status: :ok
   end
 

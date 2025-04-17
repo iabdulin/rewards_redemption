@@ -16,6 +16,6 @@ class ApplicationController < ActionController::API
   end
 
   def simulate_slow_response
-    sleep 0.2 # to simulate loading
+    sleep 0.1 # to simulate loading
   end
 end
