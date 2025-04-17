@@ -1,13 +1,19 @@
 # Rewards Redemption
 
+https://github.com/iabdulin/rewards_redemption
+
 A full-stack web app built with React, Rails, and PostgreSQL.
 
 [![Lint (Rubocop & TS/ESLint)](https://github.com/iabdulin/rewards_redemption/actions/workflows/lint.yml/badge.svg)](https://github.com/iabdulin/rewards_redemption/actions/workflows/lint.yml)
 [![Rails Tests](https://github.com/iabdulin/rewards_redemption/actions/workflows/rails.yml/badge.svg)](https://github.com/iabdulin/rewards_redemption/actions/workflows/rails.yml)
 [![Playwright E2E Tests](https://github.com/iabdulin/rewards_redemption/actions/workflows/e2e.yml/badge.svg)](https://github.com/iabdulin/rewards_redemption/actions/workflows/e2e.yml)
 
-<img width="704" alt="image" src="https://github.com/user-attachments/assets/e4c30777-1034-4cef-b33c-bffe78fa4f58" />
+<img width="1210" alt="image" src="https://github.com/user-attachments/assets/86ed001c-9897-4970-ad9b-28c59b200c3e" />
 
+
+more demos:
+https://drive.google.com/file/d/1rBoUpMToUmiM_Ztn0bLvSeQKy-crPud8/view
+https://drive.google.com/file/d/1rCONeYfVQ0-qSeEu9dfKO0bOExLhQfLD/view?usp=sharing
 
 ## Setup
 
