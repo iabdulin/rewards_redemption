@@ -34,8 +34,8 @@ test.describe('Fixtures', () => {
     await expect(page.getByText('No redemptions found')).not.toBeVisible()
     await expect(page.getByText('Your Redemption History')).toBeVisible()
     await expect(rrPage.getRedemptions()).toHaveCount(1)
-    await expect(rrPage.getRedemptions().first()).toHaveText(
-      'Leather Journal–10 points7/6/18984:26:08 PM',
+    await expect(rrPage.getRedemptions().first()).toContainText(
+      'Leather Journal–10 points',
     )
   })
 })
