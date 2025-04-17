@@ -27,6 +27,7 @@ More demos:
 6. Run `docker-compose exec backend rails db:migrate` to migrate the database.
 7. Backend is available at: `http://localhost:3000/`
 8. Database is available at: `postgres:password@localhost:5432/rr_development`
+9. Fixtures can be loaded with `docker compose exec backend rails db:fixtures:load`
 
 #### Frontend
 
@@ -41,7 +42,6 @@ More demos:
 - End-to-End tests with Playwright headless in the docker container: `npm run test:e2e`
 - E2E tests in headed mode locally: `cd frontend && npx playwright test --headed`
 - Alternative way to run E2E tests: Use VSCode Playwright extension.
-- Fixtures can be loaded with `docker compose exec backend rails db:fixtures:load`
 
 ### E2E Tests
 
