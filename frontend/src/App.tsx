@@ -2,98 +2,50 @@ import logo from './assets/logo.webp'
 import Balance from './components/Balance'
 import RewardsList from './components/RewardsList'
 import Redemptions from './components/Redemptions'
-import { Reward, ProfileType, DEFAULT_PROFILE, Redemption } from './types'
 import { useState, useEffect, useCallback } from 'react'
-import { api, ServerError } from './api'
+import {
+  useProfile,
+  useRewards,
+  useRedemptions,
+  useRewardRedemption,
+} from './hooks'
 
 function App() {
-  const [rewards, setRewards] = useState<Reward[]>([])
-  const [profile, setProfile] = useState<ProfileType>(DEFAULT_PROFILE)
-  const [loading, setLoading] = useState(true)
-  const [redemptions, setRedemptions] = useState<Redemption[]>([])
   const [errors, setErrors] = useState<string[]>([])
 
-  const handleError = (error: unknown) => {
-    console.error('Error:', error)
-    if (error instanceof ServerError) {
-      return error.message
-    } else {
-      return 'Something went wrong'
-    }
-  }
+  const { profile, error: profileError, fetchUserData } = useProfile()
+  const { rewards, error: rewardsError, fetchRewards } = useRewards()
+  const {
+    redemptions,
+    loading,
+    error: redemptionsError,
+    fetchRedemptions,
+  } = useRedemptions()
 
-  const fetchUserData = useCallback(async () => {
-    try {
-      const userData = await api.getCurrentUser()
-      setProfile((prev) => ({
-        ...prev,
-        balance: userData.points_balance,
-        name: userData.name,
-        updated_at: userData.updated_at,
-      }))
-    } catch (error) {
-      console.error('Error fetching user data:', error)
-      setErrors((prev) => [
-        ...prev,
-        error instanceof Error ? error.message : 'Unknown error',
-      ])
-    } finally {
-      setLoading(false)
-    }
-  }, [])
+  // Refresh all data after successful/failed redemption
+  // failed redemption can happen in following cases:
+  // 1. that a user's balance was updated behind the scenes
+  // 2. that a reward is not available anymore (eg. deleted or marked as unavailable)
+  const refreshAllData = useCallback(async () => {
+    await fetchRedemptions()
+    await fetchRewards()
+    await fetchUserData()
+  }, [fetchUserData, fetchRewards, fetchRedemptions])
 
-  const fetchRewards = useCallback(async () => {
-    try {
-      const rewardsData = await api.getRewards()
-      setRewards(rewardsData)
-    } catch (error) {
-      console.error('Error fetching rewards:', error)
-      setErrors((prev) => [
-        ...prev,
-        error instanceof Error ? error.message : 'Unknown error',
-      ])
-    }
-  }, [])
-
-  const fetchRedemptions = useCallback(async () => {
-    try {
-      setLoading(true)
-      const data = await api.getRedemptions()
-      setRedemptions(data)
-    } catch (err) {
-      setErrors((prev) => [
-        ...prev,
-        err instanceof Error ? err.message : 'Unknown error',
-      ])
-      console.error(err)
-    } finally {
-      setLoading(false)
-    }
-  }, [])
-
-  const redeemReward = useCallback(
-    async (rewardId: number) => {
-      try {
-        await api.redeemReward(rewardId)
-        await fetchRedemptions()
-      } catch (error) {
-        const errorMessage = handleError(error)
-        alert(errorMessage)
-        await fetchRewards() // in case a reward becomes unavailable
-      } finally {
-        setLoading(false)
-        await fetchUserData()
-      }
-    },
-    [fetchRewards, fetchUserData, fetchRedemptions],
-  )
+  const { redeemReward } = useRewardRedemption(refreshAllData)
 
   useEffect(() => {
-    setErrors([])
-    fetchRedemptions()
-    fetchRewards()
-    fetchUserData()
-  }, [fetchUserData, fetchRewards, fetchRedemptions])
+    const allErrors: string[] = []
+    if (profileError) allErrors.push(profileError)
+    if (rewardsError) allErrors.push(rewardsError)
+    if (redemptionsError) allErrors.push(redemptionsError)
+
+    setErrors([...new Set(allErrors)]) // deduplicate errors
+  }, [profileError, rewardsError, redemptionsError])
+
+  useEffect(() => {
+    refreshAllData()
+  }, [refreshAllData])
 
   return (
     <div className="p-8">
@@ -108,7 +60,7 @@ function App() {
             role="alert"
             aria-live="assertive"
           >
-            {[...new Set(errors)].join(',')}
+            {errors.join(', ')}
           </div>
         )}
 
