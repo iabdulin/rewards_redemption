@@ -97,9 +97,13 @@ test.describe('Errors', () => {
   test('should show error for unexpected server error', async ({ page }) => {
     // stub the server to return a 500 error
     page.route('**/api/v1/redemptions', async (route) => {
-      await route.fulfill({
-        status: 500,
-      })
+      if (route.request().method() === 'POST') {
+        await route.fulfill({
+          status: 500,
+        })
+      } else {
+        await route.continue()
+      }
     })
 
     const reward = rrPage.getReward(ROLLING_BLOCK_RIFLE_ID)
