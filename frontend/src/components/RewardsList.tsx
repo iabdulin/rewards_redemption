@@ -23,9 +23,12 @@ export default function RewardsList({
         aria-label="Available rewards"
       >
         {rewards.map((reward) => (
-          <div role="listitem" key={reward.id}>
-            <Reward reward={reward} balance={balance} onRedeem={onRedeem} />
-          </div>
+          <Reward
+            reward={reward}
+            balance={balance}
+            onRedeem={onRedeem}
+            key={reward.id}
+          />
         ))}
       </div>
     </section>
