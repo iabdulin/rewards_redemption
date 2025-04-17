@@ -11,9 +11,9 @@ A full-stack web app built with React, Rails, and PostgreSQL.
 <img width="1210" alt="image" src="https://github.com/user-attachments/assets/86ed001c-9897-4970-ad9b-28c59b200c3e" />
 
 
-more demos:
-https://drive.google.com/file/d/1rBoUpMToUmiM_Ztn0bLvSeQKy-crPud8/view
-https://drive.google.com/file/d/1rCONeYfVQ0-qSeEu9dfKO0bOExLhQfLD/view?usp=sharing
+More demos:
+- https://drive.google.com/file/d/1rBoUpMToUmiM_Ztn0bLvSeQKy-crPud8/view
+- https://drive.google.com/file/d/1rCONeYfVQ0-qSeEu9dfKO0bOExLhQfLD/view?usp=sharing
 
 ## Setup
 
