@@ -1,10 +1,12 @@
-import './App.css'
+import logo from './assets/logo.webp'
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello World</h1>
-    </>
+    <div className="p-8">
+      <div className="mb-4 flex items-center justify-center">
+        <img src={logo} alt="Rewards Redemption Logo" className="w-60" />
+      </div>
+    </div>
   )
 }
 

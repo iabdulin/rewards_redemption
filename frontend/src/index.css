@@ -1,1 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@theme {
+  --color-primary: #b9020b;
+}
+
+body {
+  background-color: #d4b990;
+  background-image: url('assets/background.webp');
+  background-size: cover;
+  background-repeat: repeat;
+}
