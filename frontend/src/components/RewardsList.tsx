@@ -18,7 +18,7 @@ export default function RewardsList({
         Available Rewards
       </h2>
       <div
-        className="relative grid grid-cols-1 gap-8 sm:grid-cols-2"
+        className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3"
         role="list"
         aria-label="Available rewards"
       >
