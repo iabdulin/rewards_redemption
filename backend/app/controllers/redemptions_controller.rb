@@ -1,6 +1,6 @@
 class RedemptionsController < ApplicationController
   def index
-    # Note: pagination is not implemented
+    # Note: pagination is not implemented for simplicity
     redemptions = current_user.redemptions.order(created_at: :desc)
     render json: redemptions, status: :ok
   end
