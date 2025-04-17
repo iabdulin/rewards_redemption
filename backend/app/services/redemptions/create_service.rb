@@ -34,6 +34,7 @@ module Redemptions
           @user.points_balance -= @reward.cost
 
           @user.save!
+          @user.touch unless @user.changed?
           redemption.save!
 
           success_result(redemption)
